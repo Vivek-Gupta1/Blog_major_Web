@@ -20,7 +20,7 @@ public class Comments {
     private String name;
     private String email;
     @Lob
-    private String comments;
+    private String blogComments;
 
     @CreationTimestamp // Automatically sets the timestamp when the entity is created
     @Column( nullable = false) // Prevent updates to the created_at column
@@ -54,12 +54,12 @@ public class Comments {
         this.email = email;
     }
 
-    public String getComments() {
-        return comments;
+    public String getBlogComments() {
+        return blogComments;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setBlogComments(String blogComments) {
+        this.blogComments = blogComments;
     }
 
     public LocalDate getCreatedAt() {

@@ -9,15 +9,18 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserImpl implements UserService {
 
-    @Autowired
+
     private UserRepository userRepository;
+
+    @Autowired
+    public UserImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public boolean saveUser(RegisterM registerM) {
@@ -34,13 +37,6 @@ public class UserImpl implements UserService {
     @Override
     public boolean login(LoginForm loginForm) {
         Optional<UserTable> byEmail = userRepository.findByEmail(loginForm.getEmail());
-        if(byEmail.isEmpty()){
-            return false;
-        }
-
-        if (byEmail.get().getPwd().equals(loginForm.getPwd())) {
-            return true;
-        }
-        return false;
+        return byEmail.isPresent() && byEmail.get().getPwd().equals(loginForm.getPwd());
     }
 }

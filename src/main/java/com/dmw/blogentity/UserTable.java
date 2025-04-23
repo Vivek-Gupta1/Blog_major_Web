@@ -3,8 +3,7 @@ package com.dmw.blogentity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
-//@Setter
-//@Getter
+
 @Entity
 @Table(name = "User_Table")
 public class UserTable {

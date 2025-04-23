@@ -1,8 +1,6 @@
 package com.dmw.blogentity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -18,7 +16,8 @@ public class Post {
     private Integer postId;
     private String title;
     private String shortDesc;
-    private String contant;
+    private String action;
+
 
     @CreationTimestamp // Automatically sets the timestamp when the entity is created
     @Column(updatable = false, nullable = false) // Prevent updates to the created_at column
@@ -48,26 +47,32 @@ public class Post {
     }
 
     public void setTitle(String title) {
+
         this.title = title;
     }
 
     public String getShortDesc() {
+
         return shortDesc;
     }
 
     public void setShortDesc(String shortDesc) {
+
         this.shortDesc = shortDesc;
     }
 
     public String getContant() {
-        return contant;
+
+        return action;
     }
 
     public void setContant(String contant) {
-        this.contant = contant;
+
+        this.action = contant;
     }
 
     public LocalDate getCreatedAt() {
+
         return createdAt;
     }
 

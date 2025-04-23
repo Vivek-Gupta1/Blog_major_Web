@@ -1,6 +1,6 @@
 package com.dmw.blogservice;
 
-import com.dmw.blogentity.UserTable;
+
 import com.dmw.model.LoginForm;
 import com.dmw.model.RegisterM;
 import org.springframework.stereotype.Service;
